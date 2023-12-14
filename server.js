@@ -3,7 +3,7 @@ import path from 'path';
 import {fileURLToPath} from 'url';
 import fs from 'fs';
 import multer from 'multer';
-import {getUsers} from './database.js';
+import {getUsers, getPost, getPosts} from './database.js';
 
 // Create __dirname equivalent in ES6 module
 const __filename = fileURLToPath(import.meta.url);
@@ -40,6 +40,27 @@ app.get('/users', async (req, res) => {
     res.json(users); // Use res.json to send JSON response
   } catch (error) {
     res.status(500).send('Error fetching users');
+  }
+});
+
+// get a post by id
+app.get('/blogPosts/:post_id', async (req, res) => {
+  try {
+    const id = req.params.post_id;
+    const post = await getPost(id);
+    res.json(post); // Use res.json to send JSON response
+  } catch (error) {
+    res.status(500).send('Error fetching post');
+  }
+});
+
+// get all posts
+app.get('/blogPosts/', async (req, res) => {
+  try {
+    const posts = await getPosts();
+    res.json(posts); // Use res.json to send JSON response
+  } catch (error) {
+    res.status(500).send('Error fetching posts');
   }
 });
 

@@ -17,3 +17,23 @@ export async function getUsers() {
   const [rows] = await pool.query(`SELECT * FROM Users`);
   return rows;
 }
+
+/**
+ * Retrieves a blog post from the database.
+ * @param {post_id} postId - The id of the post to retrieve.
+ * @return {Promise<Object>} the specified row from the BlogPosts table.
+ */
+export async function getPost(postId) {
+  const [row] = await pool.query(
+      `SELECT * FROM BlogPosts WHERE post_id = ?`, [postId]);
+  return [row];
+}
+
+/**
+ * Retrieves all blog posts from the database.
+ * @return {Promise<Object>} All rows from the BlogPosts table.
+ */
+export async function getPosts() {
+  const [rows] = await pool.query(`SELECT * FROM BlogPosts`);
+  return rows;
+}
