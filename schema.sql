@@ -16,6 +16,7 @@ CREATE TABLE Users (
 CREATE TABLE BlogPosts (
     post_id INT AUTO_INCREMENT PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
+    post_description VARCHAR(140) DEFAULT NULL,
     content TEXT NOT NULL,
     author_id INT,
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
