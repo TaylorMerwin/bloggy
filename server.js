@@ -44,7 +44,7 @@ app.get('/users', async (req, res) => {
 });
 
 // get a post by id
-app.get('/blogPosts/:post_id', async (req, res) => {
+app.get('/blogPost/:post_id', async (req, res) => {
   try {
     const id = req.params.post_id;
     const post = await getPost(id);

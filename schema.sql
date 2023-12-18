@@ -29,3 +29,6 @@ VALUES ('default_user', '$2b$10$KGh.TdmfqH54j5RTphTN8e72YQwZjlnr5RswpS.ky9fXWnq.
 
 CREATE USER 'admin'@'localhost' IDENTIFIED BY 'ej^4s{7%?QpHjh';
 GRANT ALL PRIVILEGES ON Bloggy.* TO 'admin'@'localhost';
+
+INSERT INTO BlogPosts (title, post_description, content, author_id, image_path)
+VALUES ('My First Post', 'This is my first post', 'This is the content of my first post', 1, 'uploads/dolphin.jpg');
